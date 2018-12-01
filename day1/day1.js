@@ -8,7 +8,7 @@ function day1() {
     var input       = new XMLHttpRequest();
     var file_path   = 'insert your file path here';
 
-    input.open("GET", 'input.txt', false);
+    input.open("GET", file_path, false);
     input.onreadystatechange = function ()
     {
         if(input.readyState === 4)
