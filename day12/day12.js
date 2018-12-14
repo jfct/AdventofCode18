@@ -46,7 +46,7 @@ function day12() {
                 var stability_start     = 0;
                 var stability_gen       = 0;
 
-                for(let i = 0; i < 300; i++) {
+                for(let i = 1; i <= 200; i++) {
                     let arr = [];
 
                     for(let idx = 0; idx < istate.length; idx++) {
@@ -107,8 +107,8 @@ function day12() {
                     if(increase == previous_increase) {
                         stability++;
                         if(stability_start == 0) {
-                            stability_start = previous;
-                            stability_gen   = i-1;
+                            stability_start = current;
+                            stability_gen   = i;
                         }
                     } else {
                         stability_start = 0;
@@ -120,10 +120,9 @@ function day12() {
                     }
                     previous            = current;
                     previous_increase   = increase;
-                }
-
-                console.log(stability_gen, stability_start);
-                let part2 = stability_start + (50000000000 - (stability_gen)) * increase;
+                }               
+                
+                let part2 = (stability_start + (50000000000 - (stability_gen)) * increase);
 
                 t1 = performance.now();
                 $("#second_result").append(part2);
